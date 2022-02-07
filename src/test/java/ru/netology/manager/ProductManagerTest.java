@@ -11,8 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductManagerTest {
 
-    //private ProductRepository repository = new ProductRepository();
-    private final ProductManager manager = new ProductManager(new ProductRepository());
+       private final ProductManager manager = new ProductManager(new ProductRepository());
 
     private final Book firstBook = new Book(1, "Мир на Земле", 800, "Станислав Лем");
     private final Book secondBook = new Book(2, "Проклятые экономики", 1500, "Андрей Мовчан");
@@ -36,48 +35,33 @@ class ProductManagerTest {
         Product[] expected = new Product[]{secondBook};
         Product[] actual = manager.searchBy("Проклятые экономики");
         assertArrayEquals(expected, actual);
-        for (Product product : actual) {
-            System.out.println(product);
-        }
-    }
+           }
 
     @Test
     public void shouldReturnByAuthorsBooks() {
         Product[] expected = new Product[]{thirdBook, fourthBook};
         Product[] actual = manager.searchBy("Харуки Мураками");
         assertArrayEquals(expected, actual);
-        for (Product product : actual) {
-            System.out.println(product);
-        }
-    }
+          }
 
     @Test
     public void shouldReturnByNamesSmartphone() {
         Product[] expected = new Product[]{firstSmartphone};
         Product[] actual = manager.searchBy("Xiaomi");
         assertArrayEquals(expected, actual);
-        for (Product product : actual) {
-            System.out.println(product);
-        }
-    }
+           }
 
     @Test
     public void shouldReturnByManufacturesSmartphone() {
         Product[] expected = new Product[]{secondSmartphone};
         Product[] actual = manager.searchBy("Foxconn");
         assertArrayEquals(expected, actual);
-        for (Product product : actual) {
-            System.out.println(product);
-        }
-    }
+           }
 
     @Test
     public void shouldFindsNothing() {
         Product[] expected = new Product[]{};
         Product[] actual = manager.searchBy("Iphone");
         assertArrayEquals(expected, actual);
-        for (Product product : actual) {
-            System.out.println(product);
-        }
-    }
+           }
 }
