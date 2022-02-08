@@ -28,7 +28,7 @@ public class ProductRepository {
     }
 
     public void removeById(int id) {
-        if (findById(id)==null){
+        if (findById(id) == null) {
             return;
         }
         Product[] tmp = new Product[items.length - 1];
